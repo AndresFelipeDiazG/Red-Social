@@ -7,9 +7,6 @@ CREATE TABLE users (
 
     CONSTRAINT users_username_unique UNIQUE (username),
 
-    -- La aplicacion normaliza el usuario a minusculas antes de consultar. Esta
-    -- restriccion impide que una fila insertada por otra via (una carga manual,
-    -- otro script) quede inaccesible para el login por diferir en mayusculas.
     CONSTRAINT users_username_lowercase CHECK (username = lower(username)),
 
     CONSTRAINT users_username_not_blank CHECK (btrim(username) <> ''),
