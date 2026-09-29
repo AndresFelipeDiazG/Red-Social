@@ -35,6 +35,9 @@ de publicaciones y creacion de mensajes.
               │  social_auth     │   │  social_posts      │
               └──────────────────┘   └────────────────────┘
 ```
+Nota:Los puertos mostrados dentro de la red Docker son internos. Los puertos publicados
+en el anfitrión se configuran mediante .env y pueden cambiar si ya están ocupados.
+La arquitectura no cambia; solo estamos documentando correctamente la diferencia entre red interna y máquina anfitriona.
 
 Una base de datos por servicio. `post-service` **no** consulta a `auth-service`
 para validar tokens: verifica la firma localmente con el mismo secreto, asi que
