@@ -1,0 +1,119 @@
+:root {
+
+  --ground: #ffffff;
+  --surface: #eaedf1;
+  --accent: #217c27;
+  --accent-text: #217c27;
+  --accent-soft: #e6f2e7;
+  --fg-primary: #1a1a1a;
+  --fg-secondary: #4b5563;
+  --fg-muted: #9ca3af;
+  --fg-inverse: #ffffff;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 5%), 0 10px 24px -18px rgb(16 24 40 / 35%);
+
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* Inter para todo. Variable para que el navegador pueda interpolar pesos y estilos sin saltos. */
+  --font-body: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: var(--font-body);
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #191d24;
+    --surface: #0c0e12;
+    --accent: #248a2c;
+    --accent-text: #5bc466;
+    --accent-soft: #16281a;
+    --fg-primary: #f3f4f6;
+    --fg-secondary: #b4bbc6;
+    --fg-muted: #7c8592;
+    --border: #2a2f38;
+    --danger: #f87171;
+    --danger-soft: #2a1517;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #191d24;
+  --surface: #0c0e12;
+  --accent: #248a2c;
+  --accent-text: #5bc466;
+  --accent-soft: #16281a;
+  --fg-primary: #f3f4f6;
+  --fg-secondary: #b4bbc6;
+  --fg-muted: #7c8592;
+  --border: #2a2f38;
+  --danger: #f87171;
+  --danger-soft: #2a1517;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--ground);
+  color: var(--fg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Primitivos compartidos por varias pantallas. */
+.btn-primary {
+  height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: filter 120ms ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.alert {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: 2px solid var(--danger);
+  border-radius: var(--radius-lg);
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 0.8125rem;
+}
+
+/* El foco solo se dibuja para quien navega con teclado: :focus-visible lo
+   excluye del clic de raton, donde el anillo sobra. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
